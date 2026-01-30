@@ -5,6 +5,7 @@
 
 **Environmental project** is a high-performance, scalable, and intelligent NPC traffic system designed for Multi Theft Auto: San Andreas. Built on top of the robust `npc_hlc` library, it introduces modern features like dynamic density, cluster-based spawning, and smart deadlock resolution to support servers with high player counts (500+).
 
+**Attention: This project modernization involved the use of AI. If you find any issues or errors, please report them via DM on Discord: @obrandom.**
 ---
 
 ## ✨ Key Features
