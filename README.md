@@ -25,7 +25,6 @@ The system is engineered to run smoothly on populated servers:
 
 ### 👁️ Visuals & Synchronization
 - **Turn Signals & Brake Lights**: Integrated with `custom_coronas` to provide realistic light effects for NPC vehicles.
-- **Smooth Movement**: Utilizes `chemical_syncer_cr` for lag-free position and rotation synchronization across clients.
 - **Ghost Mode Prevention**: Intelligent collision state management prevents physics explosions and stacking.
 
 ---
