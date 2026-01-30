@@ -958,7 +958,7 @@ function spawnTrafficInSquare(x, y, dim, trtype)
             
             -- Trailers for trucks (Linerunner 514, Roadtrain 515)
             if category == "HEAVY" and (model == 514 or model == 515) and math.random() < 0.4 then
-                local trailers = {435, 450, 584, 590, 591, 592, 593}
+                local trailers = {435, 450, 584, 590, 591}
                 local trailer_model = trailers[math.random(#trailers)]
                 
                 local trailer = createVehicle(trailer_model, x - 8, y, z+zoff, rx, 0, rz)
