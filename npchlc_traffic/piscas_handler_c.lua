@@ -1,0 +1,1 @@
+-- Arquivo obsoleto, funcionalidade movida para npc_turn_signals_c.lua

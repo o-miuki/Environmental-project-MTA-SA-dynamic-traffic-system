@@ -3,7 +3,7 @@
 --
 
 function createCorona(posX,posY,posZ,size,colorR,colorG,colorB,colorA,...)
-	-- Convert to number if possible (accepts numeric strings)
+	-- Converte para número se possível (aceita strings numéricas)
 	posX = tonumber(posX)
 	posY = tonumber(posY)
 	posZ = tonumber(posZ)
@@ -13,16 +13,16 @@ function createCorona(posX,posY,posZ,size,colorR,colorG,colorB,colorA,...)
 	colorB = tonumber(colorB)
 	colorA = tonumber(colorA)
 	
-	-- Validation after conversion
+	-- Validação após conversão
 	if not (posX and posY and posZ and size and colorR and colorG and colorB and colorA) then
-		outputDebugString('createCorona fail! One or more parameters are not valid numbers.')
-		outputDebugString('Received values: '..tostring(posX)..', '..tostring(posY)..', '..tostring(posZ)..', '..tostring(size)..', '..tostring(colorR)..', '..tostring(colorG)..', '..tostring(colorB)..', '..tostring(colorA))
+		outputDebugString('createCorona fail! Um ou mais parâmetros não são números válidos.')
+		outputDebugString('Valores recebidos: '..tostring(posX)..', '..tostring(posY)..', '..tostring(posZ)..', '..tostring(size)..', '..tostring(colorR)..', '..tostring(colorG)..', '..tostring(colorB)..', '..tostring(colorA))
 		return false
 	end
 
 	local optParam = {...}
 	if (#optParam > 1) then
-		outputDebugString('createCorona fail! Too many optional parameters.')
+		outputDebugString('createCorona fail! Demasiados parâmetros opcionais.')
 		return false
 	end
 
@@ -31,12 +31,12 @@ function createCorona(posX,posY,posZ,size,colorR,colorG,colorB,colorA,...)
 		isDepthEffect = false
 	end
 
-	-- Convert boolean to the number expected by internal function (1 or 2)
+	-- Converte o booleano para o número que a função interna espera (1 ou 2)
 	local coronaType = isDepthEffect and 2 or 1
 
 	local SHCelementID = funcTable.createCorona(coronaType,posX,posY,posZ,size,colorR,colorG,colorB,colorA)
 	
-	-- More robust verification: accepts any number (including 0)
+	-- Verificação mais robusta: aceita qualquer número (incluindo 0)
 	if SHCelementID and type(SHCelementID) == "number" then
 		return createElement("SHCustomCorona",tostring(SHCelementID))
 	else
@@ -47,11 +47,11 @@ end
 
 function createMaterialCorona(texImage,posX,posY,posZ,size,colorR,colorG,colorB,colorA,...)
 	if not isElement(texImage) then
-		outputDebugString('createMaterialCorona fail! The provided texture is not a valid element.')
+		outputDebugString('createMaterialCorona fail! A textura fornecida não é um elemento válido.')
 		return false
 	end
 
-	-- Convert to number if possible
+	-- Converte para número se possível
 	posX = tonumber(posX)
 	posY = tonumber(posY)
 	posZ = tonumber(posZ)
@@ -61,15 +61,15 @@ function createMaterialCorona(texImage,posX,posY,posZ,size,colorR,colorG,colorB,
 	colorB = tonumber(colorB)
 	colorA = tonumber(colorA)
 
-	-- Validation after conversion
+	-- Validação após conversão
 	if not (posX and posY and posZ and size and colorR and colorG and colorB and colorA) then
-		outputDebugString('createMaterialCorona fail! One or more parameters are not valid numbers.')
+		outputDebugString('createMaterialCorona fail! Um ou mais parâmetros não são números válidos.')
 		return false
 	end
 
 	local optParam = {...}
 	if (#optParam > 1) then
-		outputDebugString('createMaterialCorona fail! Too many optional parameters.')
+		outputDebugString('createMaterialCorona fail! Demasiados parâmetros opcionais.')
 		return false
 	end
 
@@ -82,7 +82,7 @@ function createMaterialCorona(texImage,posX,posY,posZ,size,colorR,colorG,colorB,
 
 	local SHCelementID = funcTable.createMaterialCorona(texImage,coronaType,posX,posY,posZ,size,colorR,colorG,colorB,colorA)
 	
-	-- More robust verification
+	-- Verificação mais robusta
 	if SHCelementID and type(SHCelementID) == "number" then
 		return createElement("SHCustomCorona",tostring(SHCelementID))
 	else

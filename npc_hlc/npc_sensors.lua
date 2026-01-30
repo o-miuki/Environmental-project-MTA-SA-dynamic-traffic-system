@@ -333,7 +333,7 @@ function handleDeadlock(npc, threat, speed)
 		
 		-- Debug output
 		if DEBUG_SENSORS then
-			---outputDebugString(string.format("[Deadlock HEAD-ON] NPC %d vs %d, dist=%.1f", myID, theirID, threat.dist))
+			outputDebugString(string.format("[Deadlock HEAD-ON] NPC %d vs %d, dist=%.1f", myID, theirID, threat.dist))
 		end
 		
 		-- PRIORITY LOGIC: Lower ID = has priority (stays put)
@@ -343,7 +343,7 @@ function handleDeadlock(npc, threat, speed)
 			if threat.dist < 6.0 then 
 				setElementData(npc, "npc.reverse_mode", true)
 				if DEBUG_SENSORS then
-					---outputDebugString(string.format("[Deadlock] NPC %d REVERSING", myID))
+					outputDebugString(string.format("[Deadlock] NPC %d REVERSING", myID))
 				end
 				return 0.0
 			end
@@ -351,7 +351,7 @@ function handleDeadlock(npc, threat, speed)
 		else
 			-- I'm older (lower ID), I have priority - just wait
 			if DEBUG_SENSORS then
-				---outputDebugString(string.format("[Deadlock] NPC %d WAITING (priority)", myID))
+				outputDebugString(string.format("[Deadlock] NPC %d WAITING (priority)", myID))
 			end
 			return 0.0
 		end
@@ -687,7 +687,7 @@ function updateFrustration(npc, isStuck)
 		-- Use emergency_light flag for hazard (both sides blink together)
 		setElementData(vehicle, "emergency_light", true)
 		if DEBUG_SENSORS then
-			---outputDebugString("[Frustration] NPC activating hazard lights")
+			outputDebugString("[Frustration] NPC activating hazard lights")
 		end
 	end
 	
@@ -697,7 +697,7 @@ function updateFrustration(npc, isStuck)
 			frust.lastHonkPattern = now
 			playHonkPattern(npc)
 			if DEBUG_SENSORS then
-				---outputDebugString("[Frustration] NPC playing honk pattern (3+2)")
+				outputDebugString("[Frustration] NPC playing honk pattern (3+2)")
 			end
 		end
 	end
@@ -731,7 +731,7 @@ function startFadeOutDespawn(npc, vehicle)
 	end
 	
 	if DEBUG_SENSORS then
-		---outputDebugString(string.format("[Frustration] Starting fade-out for vehicle with %d occupants", #occupants))
+		outputDebugString(string.format("[Frustration] Starting fade-out for vehicle with %d occupants", #occupants))
 	end
 	
 	local stepInterval = FADE_DURATION_MS / FADE_STEPS
@@ -770,7 +770,7 @@ function startFadeOutDespawn(npc, vehicle)
 			end
 			
 			if DEBUG_SENSORS then
-				---outputDebugString("[Frustration] Fade-out complete, elements destroyed")
+				outputDebugString("[Frustration] Fade-out complete, elements destroyed")
 			end
 		end
 	end, stepInterval, FADE_STEPS)
